@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  db:
+    image: mariadb
+    env_file: .env
+    ports:
+      - "3306:3306"
+    restart: always
+
+  mariadb-backup:
+    build: .
+    container_name: mariadb-backup
+    env_file: .env
+    environment:
+      MYSQL_HOST: db
+      FILE_PREFIX: app_name_here
+      ADD_DATE: 1
+      RETAIN_NO: 3
+    volumes:
+      - ./backup:/backup
+    command: crond -f -d 8
+    restart: always
