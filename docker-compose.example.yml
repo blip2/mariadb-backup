@@ -21,3 +21,5 @@ services:
       - ./backup:/backup
     command: crond -f -d 8
     restart: always
+    depends_on:
+      - db
