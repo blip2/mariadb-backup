@@ -9,7 +9,7 @@ services:
     restart: always
 
   mariadb-backup:
-    build: .
+    image: blip2/mariadb-backup
     container_name: mariadb-backup
     env_file: .env
     environment:
