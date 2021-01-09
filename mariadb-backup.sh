@@ -18,4 +18,4 @@ FILE=${BACKUP_FOLDER}/${FILE_PREFIX}${FILE_SUFFIX}.sql.gz
 
 $MYSQLDUMP -h $MYSQL_HOST -u root -p${MYSQL_ROOT_PASSWORD} --databases $MYSQL_DATABASE | $GZIP -9 > $FILE
 
-find $BACKUP_FOLDER -name "*$FILE_PREFIX*" | sort -r | tail -n +$(($RETAIN_NO + 1)) | xargs rm
+find $BACKUP_FOLDER -name "*$FILE_PREFIX*.sql.gz" | sort -r | tail -n +$(($RETAIN_NO + 1)) | xargs rm
