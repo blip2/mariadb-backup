@@ -19,8 +19,8 @@ Derived from https://github.com/ricardolsmendes/docker-samples
 
 Backups will be run daily using cron, to trigger a manual backup:
 
-```docker exec mariadb-backup /etc/periodic/daily/mariadb-backup.sh```
+```docker exec mariadb-backup /etc/cron.daily/mariadb-backup```
 
 or
 
-```docker-compose exec mariadb-backup /etc/periodic/daily/mariadb-backup.sh```
+```docker-compose exec mariadb-backup /etc/cron.daily/mariadb-backup```
